@@ -44,3 +44,5 @@ const multipleNumbersFacts = (num1, num2, num3) => {
     })
     .catch((err) => console.log(err));
 };
+
+console.log(multipleNumbersFacts(1, 2, 3));
