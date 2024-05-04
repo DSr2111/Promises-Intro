@@ -8,3 +8,5 @@ const numberFact = (number) => {
     .then((data) => console.log(`Fact about the number: ${data.data}`))
     .catch((err) => console.log(err));
 };
+
+console.log(numberFact(10));
