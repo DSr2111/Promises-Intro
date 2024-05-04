@@ -1,7 +1,10 @@
-let url = "http://numbersapi.com/1";
+const baseUrl = "http://numbersapi.com/";
 
-let numberFact = axios.get(url);
+const numberFact = (number) => {
+  let url = `${baseUrl}${number}`;
 
-numberFact
-  .then((data) => console.log(`Fact about the number: ${data.data}`))
-  .catch((err) => console.log(err));
+  axios
+    .get(url)
+    .then((data) => console.log(`Fact about the number: ${data.data}`))
+    .catch((err) => console.log(err));
+};
