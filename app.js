@@ -24,4 +24,23 @@ const numberFact = (number) => {
     .catch((err) => console.log(err));
 };
 
-console.log(numberFact(102));
+const multipleNumbersFacts = (num1, num2, num3) => {
+  let url1 = `${baseUrl}${num1}`;
+  let url2 = `${baseUrl}${num2}`;
+  let url3 = `${baseUrl}${num3}`;
+
+  axios
+    .get(url1)
+    .then((data) => {
+      console.log(`Fact about first number ${number}: ${data.data}`);
+      return axios.get(url2);
+    })
+    .then((data) => {
+      console.log(`Second fact about ${number}: ${data.data}`);
+      return axios.get(url3);
+    })
+    .then((data) => {
+      console.log(`Third fact about ${number}: ${data.data}`);
+    })
+    .catch((err) => console.log(err));
+};
