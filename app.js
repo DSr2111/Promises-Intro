@@ -32,15 +32,15 @@ const multipleNumbersFacts = (num1, num2, num3) => {
   axios
     .get(url1)
     .then((data) => {
-      console.log(`Fact about first number ${number}: ${data.data}`);
+      console.log(`Fact about first number ${num1}: ${data.data}`);
       return axios.get(url2);
     })
     .then((data) => {
-      console.log(`Second fact about ${number}: ${data.data}`);
+      console.log(`Fact about second number ${num2}: ${data.data}`);
       return axios.get(url3);
     })
     .then((data) => {
-      console.log(`Third fact about ${number}: ${data.data}`);
+      console.log(`Fact about third number ${num3}: ${data.data}`);
     })
     .catch((err) => console.log(err));
 };
