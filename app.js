@@ -5,8 +5,8 @@ const numberFact = (number) => {
 
   axios
     .get(url)
-    .then((data) => console.log(`Fact about the number: ${data.data}`))
+    .then((data) => console.log(`Fact about ${number}: ${data.data}`))
     .catch((err) => console.log(err));
 };
 
-console.log(numberFact(10));
+console.log(numberFact(102));
