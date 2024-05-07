@@ -71,5 +71,7 @@ const newDeckCard = () => {
 
   axios.get(url).then((response) => {
     firstCard = response.data.cards[0];
+    let deckId = response.data.deck_id;
+    return axios.get(`${url}/${deckId}/draw/`);
   });
 };
