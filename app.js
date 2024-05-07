@@ -69,9 +69,19 @@ const newDeckCard = () => {
   let url = `${deckOfCardsURL}${drawRoute}`;
   let firstCard = null;
 
-  axios.get(url).then((response) => {
-    firstCard = response.data.cards[0];
-    let deckId = response.data.deck_id;
-    return axios.get(`${url}/${deckId}/draw/`);
-  });
+  axios
+    .get(url)
+    .then((response) => {
+      firstCard = response.data.cards[0];
+      let deckId = response.data.deck_id;
+      return axios.get(`${url}/${deckId}/draw/`);
+    })
+    .then((response) => {
+      let secondCard = response.data.cards[0];
+      [firstCard, secondCard].forEach(function (card) {
+        console.log(
+          `${card.value.toLowerCase()} of ${card.suit.toLowerCase()}`
+        );
+      });
+    });
 };
