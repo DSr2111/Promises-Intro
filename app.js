@@ -58,9 +58,11 @@ const drawCard = () => {
 
   axios
     .get(url)
-    .then((data) => {
-      let { suit, value } = data.cards[0];
+    .then((response) => {
+      let { suit, value } = response.data.cards[0];
       console.log(`${value.toLowerCase()} of ${suit.toLowerCase()}`);
     })
     .catch((err) => console.log(err));
 };
+
+drawCard();
