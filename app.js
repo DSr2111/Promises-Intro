@@ -65,4 +65,11 @@ const drawCard = () => {
     .catch((err) => console.log(err));
 };
 
-drawCard();
+const newDeckCard = () => {
+  let url = `${deckOfCardsURL}${drawRoute}`;
+  let firstCard = null;
+
+  axios.get(url).then((response) => {
+    firstCard = response.data.cards[0];
+  });
+};
