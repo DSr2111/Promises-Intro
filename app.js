@@ -83,5 +83,6 @@ const newDeckCard = () => {
           `${card.value.toLowerCase()} of ${card.suit.toLowerCase()}`
         );
       });
-    });
+    })
+    .catch((err) => console.log(err));
 };
