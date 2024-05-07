@@ -1,3 +1,5 @@
+// Numbers API code
+
 const baseUrl = "http://numbersapi.com/";
 
 const numberFact = (number) => {
@@ -41,6 +43,24 @@ const multipleNumbersFacts = (num1, num2, num3) => {
     })
     .then((data) => {
       console.log(`Fact about third number ${num3}: ${data.data}`);
+    })
+    .catch((err) => console.log(err));
+};
+
+// Deck of Cards API code
+
+const deckOfCardsURL = "https://deckofcardsapi.com/api/deck";
+
+const drawRoute = "/new/draw/";
+
+const drawCard = () => {
+  let url = `${deckOfCardsURL}${drawRoute}`;
+
+  axios
+    .get(url)
+    .then((data) => {
+      let { suit, value } = data.cards[0];
+      console.log(`${value.toLowerCase()} of ${suit.toLowerCase()}`);
     })
     .catch((err) => console.log(err));
 };
