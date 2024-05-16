@@ -5,6 +5,12 @@ const baseUrl = "http://numbersapi.com/";
 const numberFactAsync = async (number) => {
   let url = `${baseUrl}${number}`;
   try {
+    for (let i = 1; i <= 4; i++) {
+      let data = await axios.get(url);
+
+      console.log(`Fact ${i} about ${number}: ${data.data}`);
+    }
+
     axios
       .get(url)
       .then((data) => {
