@@ -24,14 +24,13 @@ const multipleNumbersFacts = async (num1, num2, num3) => {
 
     let data1 = await axios.get(url1);
     console.log(`Fact about first number ${num1}: ${data1.data}`);
-    let data2 = await axios.get(url1);
+    let data2 = await axios.get(url2);
     console.log(`Fact about first number ${num2}: ${data2.data}`);
-    let data3 = await axios.get(url1);
+    let data3 = await axios.get(url3);
     console.log(`Fact about first number ${num3}: ${data3.data}`);
-  } catch {}
-
-
-    .catch((err) => console.log(err));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // Deck of Cards API code
