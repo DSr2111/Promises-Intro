@@ -45,9 +45,8 @@ const drawCard = async () => {
 
     const response = await axios.get(url);
     const { suit, value } = response.data.cards[0];
-    axios.get(url).then((response) => {
-      console.log(`${value.toLowerCase()} of ${suit.toLowerCase()}`);
-    });
+
+    console.log(`${value.toLowerCase()} of ${suit.toLowerCase()}`);
   } catch (error) {
     console.log(error);
   }
