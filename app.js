@@ -57,11 +57,12 @@ const newDeckCard = async () => {
     let url = `${deckOfCardsURL}${drawRoute}`;
     let firstCard = null;
 
-    axios
-      .get(url)
-      .then((response) => {
-        firstCard = response.data.cards[0];
-        let deckId = response.data.deck_id;
+    const response1 = await axios.get(url);
+    firstCard = response1.data.cards[0];
+    let deckId = response.data.deck_id;
+
+    
+        
         return axios.get(`${deckOfCardsURL}/${deckId}/draw/`);
       })
       .then((response) => {
