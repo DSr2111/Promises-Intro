@@ -39,15 +39,22 @@ const deckOfCardsURL = "https://deckofcardsapi.com/api/deck";
 
 const drawRoute = "/new/draw/";
 
-const drawCard = () => {
-  let url = `${deckOfCardsURL}${drawRoute}`;
-
-  axios
+const drawCard = async () => {
+  try {
+    
+    axios
     .get(url)
     .then((response) => {
       let { suit, value } = response.data.cards[0];
       console.log(`${value.toLowerCase()} of ${suit.toLowerCase()}`);
     })
+  } catch (error) {
+    console.log(error);
+  }
+
+  let url = `${deckOfCardsURL}${drawRoute}`;
+
+  
     .catch((err) => console.log(err));
 };
 
