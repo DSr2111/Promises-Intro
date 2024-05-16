@@ -41,21 +41,16 @@ const drawRoute = "/new/draw/";
 
 const drawCard = async () => {
   try {
-    
-    axios
-    .get(url)
-    .then((response) => {
-      let { suit, value } = response.data.cards[0];
+    let url = `${deckOfCardsURL}${drawRoute}`;
+
+    const response = await axios.get(url);
+    const { suit, value } = response.data.cards[0];
+    axios.get(url).then((response) => {
       console.log(`${value.toLowerCase()} of ${suit.toLowerCase()}`);
-    })
+    });
   } catch (error) {
     console.log(error);
   }
-
-  let url = `${deckOfCardsURL}${drawRoute}`;
-
-  
-    .catch((err) => console.log(err));
 };
 
 const newDeckCard = () => {
