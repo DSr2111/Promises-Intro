@@ -16,10 +16,13 @@ const numberFactAsync = async (number) => {
   }
 };
 
-const multipleNumbersFacts = (num1, num2, num3) => {
+const multipleNumbersFacts = async (num1, num2, num3) => {
   let url1 = `${baseUrl}${num1}`;
   let url2 = `${baseUrl}${num2}`;
   let url3 = `${baseUrl}${num3}`;
+
+  try {
+  } catch {}
 
   axios
     .get(url1)
