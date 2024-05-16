@@ -24,20 +24,13 @@ const multipleNumbersFacts = async (num1, num2, num3) => {
 
     let data1 = await axios.get(url1);
     console.log(`Fact about first number ${num1}: ${data1.data}`);
+    let data2 = await axios.get(url1);
+    console.log(`Fact about first number ${num2}: ${data2.data}`);
+    let data3 = await axios.get(url1);
+    console.log(`Fact about first number ${num3}: ${data3.data}`);
   } catch {}
 
-  axios
-    .get(url1)
-    .then((data) => {
-      return axios.get(url2);
-    })
-    .then((data) => {
-      console.log(`Fact about second number ${num2}: ${data.data}`);
-      return axios.get(url3);
-    })
-    .then((data) => {
-      console.log(`Fact about third number ${num3}: ${data.data}`);
-    })
+
     .catch((err) => console.log(err));
 };
 
