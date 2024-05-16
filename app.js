@@ -2,7 +2,7 @@
 
 const baseUrl = "http://numbersapi.com/";
 
-const numberFact = (number) => {
+const numberFactAsync = async (number) => {
   let url = `${baseUrl}${number}`;
 
   axios
