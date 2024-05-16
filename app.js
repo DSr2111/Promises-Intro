@@ -52,24 +52,27 @@ const drawCard = async () => {
   }
 };
 
-const newDeckCard = () => {
-  let url = `${deckOfCardsURL}${drawRoute}`;
-  let firstCard = null;
+const newDeckCard = async () => {
+  try {
+    let url = `${deckOfCardsURL}${drawRoute}`;
+    let firstCard = null;
 
-  axios
-    .get(url)
-    .then((response) => {
-      firstCard = response.data.cards[0];
-      let deckId = response.data.deck_id;
-      return axios.get(`${deckOfCardsURL}/${deckId}/draw/`);
-    })
-    .then((response) => {
-      let secondCard = response.data.cards[0];
-      [firstCard, secondCard].forEach(function (card) {
-        console.log(
-          `${card.value.toLowerCase()} of ${card.suit.toLowerCase()}`
-        );
+    axios
+      .get(url)
+      .then((response) => {
+        firstCard = response.data.cards[0];
+        let deckId = response.data.deck_id;
+        return axios.get(`${deckOfCardsURL}/${deckId}/draw/`);
+      })
+      .then((response) => {
+        let secondCard = response.data.cards[0];
+        [firstCard, secondCard].forEach(function (card) {
+          console.log(
+            `${card.value.toLowerCase()} of ${card.suit.toLowerCase()}`
+          );
+        });
       });
-    })
-    .catch((err) => console.log(err));
+  } catch (error) {
+    console.log(error);
+  }
 };
