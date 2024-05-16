@@ -59,20 +59,14 @@ const newDeckCard = async () => {
 
     const response1 = await axios.get(url);
     firstCard = response1.data.cards[0];
-    let deckId = response.data.deck_id;
+    let deckId = response1.data.deck_id;
 
-    
-        
-        return axios.get(`${deckOfCardsURL}/${deckId}/draw/`);
-      })
-      .then((response) => {
-        let secondCard = response.data.cards[0];
-        [firstCard, secondCard].forEach(function (card) {
-          console.log(
-            `${card.value.toLowerCase()} of ${card.suit.toLowerCase()}`
-          );
-        });
-      });
+    const response2 = await axios.get(`${deckOfCardsURL}/${deckId}/draw/`);
+    secondCard = response2.data.cards[0];
+
+    [firstCard, secondCard].forEach((card) => {
+      console.log(`${card.value.toLowerCase()} of ${card.suit.toLowerCase()}`);
+    });
   } catch (error) {
     console.log(error);
   }
