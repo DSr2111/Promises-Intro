@@ -4,26 +4,28 @@ const baseUrl = "http://numbersapi.com/";
 
 const numberFactAsync = async (number) => {
   let url = `${baseUrl}${number}`;
-
-  axios
-    .get(url)
-    .then((data) => {
-      console.log(`First fact about ${number}: ${data.data}`);
-      return axios.get(url);
-    })
-    .then((data) => {
-      console.log(`Second fact about ${number}: ${data.data}`);
-      return axios.get(url);
-    })
-    .then((data) => {
-      console.log(`Third fact about ${number}: ${data.data}`);
-      return axios.get(url);
-    })
-    .then((data) => {
-      console.log(`Fourth fact about ${number}: ${data.data}`);
-      return axios.get(url);
-    })
-    .catch((err) => console.log(err));
+  try {
+    axios
+      .get(url)
+      .then((data) => {
+        console.log(`First fact about ${number}: ${data.data}`);
+        return axios.get(url);
+      })
+      .then((data) => {
+        console.log(`Second fact about ${number}: ${data.data}`);
+        return axios.get(url);
+      })
+      .then((data) => {
+        console.log(`Third fact about ${number}: ${data.data}`);
+        return axios.get(url);
+      })
+      .then((data) => {
+        console.log(`Fourth fact about ${number}: ${data.data}`);
+        return axios.get(url);
+      });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const multipleNumbersFacts = (num1, num2, num3) => {
