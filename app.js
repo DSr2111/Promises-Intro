@@ -17,17 +17,18 @@ const numberFactAsync = async (number) => {
 };
 
 const multipleNumbersFacts = async (num1, num2, num3) => {
-  let url1 = `${baseUrl}${num1}`;
-  let url2 = `${baseUrl}${num2}`;
-  let url3 = `${baseUrl}${num3}`;
-
   try {
+    let url1 = `${baseUrl}${num1}`;
+    let url2 = `${baseUrl}${num2}`;
+    let url3 = `${baseUrl}${num3}`;
+
+    let data1 = await axios.get(url1);
+    console.log(`Fact about first number ${num1}: ${data1.data}`);
   } catch {}
 
   axios
     .get(url1)
     .then((data) => {
-      console.log(`Fact about first number ${num1}: ${data.data}`);
       return axios.get(url2);
     })
     .then((data) => {
