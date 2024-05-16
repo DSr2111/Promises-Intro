@@ -7,6 +7,7 @@ const numberFactAsync = async (number) => {
 
   try {
     for (let i = 1; i <= 4; i++) {
+      // 4 facts
       let data = await axios.get(url);
       console.log(`Fact ${i} about ${number}: ${data.data}`);
     }
